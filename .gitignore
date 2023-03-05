@@ -1,0 +1,14 @@
+# .idea/
+# .vscode/
+node_modules/
+*.lock
+# build/
+# tmp/
+# temp/
+# /**/*.env*
+# /dist
+# buildspec.yml
+# logs/
+# *.rdb
+# *.backup
+# .DS_Store

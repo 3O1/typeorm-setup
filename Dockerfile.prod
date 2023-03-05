@@ -1,0 +1,21 @@
+# Stage 1 building the code
+FROM node:alpine 
+WORKDIR /app
+COPY ./package.json .
+COPY ./.env.prod .
+RUN yarn
+COPY . .
+RUN yarn build
+
+# Stage 2
+FROM node:alpine
+WORKDIR /app
+COPY ./package.json .
+RUN yarn --production
+
+COPY --from=0 /app/dist ./dist
+
+COPY ./.env.prod .
+
+EXPOSE 8000
+CMD node dist/app.js

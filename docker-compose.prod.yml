@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  api:
+    build: .
+    ports:
+      - '80:6000'
+    restart: unless-stopped
+    environment:
+      DB_USER: postgres
+      DB_NAME:
+      DB_HOST:
+      DB_PASSWORD:
+    env_file:
+      - .env.prod
